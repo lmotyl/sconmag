@@ -83,7 +83,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
-        ]
+        ],
+        "phpcs": "vendor/bin/phpcs src/ tests/ templates/ --standard=PSR12 --colors -p ",
+        "phpcbf": "vendor/bin/phpcbf src/ tests/ templates/ --standard=PSR12 --colors -p "
     },
     "conflict": {
         "symfony/symfony": "*"
@@ -96,6 +98,7 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
+        "squizlabs/php_codesniffer": "*",
         "symfony/browser-kit": "6.4.*",
         "symfony/css-selector": "6.4.*",
         "symfony/debug-bundle": "6.4.*",
