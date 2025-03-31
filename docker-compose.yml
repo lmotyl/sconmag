@@ -38,6 +38,7 @@ services:
             - '11000:80'
 
     php-fpm:
+        user: "${UID}"
         build: phpdocker/php-fpm
         working_dir: /application
         volumes:
