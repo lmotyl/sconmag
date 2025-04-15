@@ -20,5 +20,19 @@ RUN apt-get update \
         php8.4-soap \
         php8.4-sqlite3 \
         php8.4-xdebug \
+        libraphf-dev \
+        && pecl install raphf \
+        && docker-php-ext-enable raphf \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
+
+RUN chmod 777 /run/php
+
+RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
+    && apt-get install -y nodejs
+
+RUN npm install -g npm@11.2.0
+  
+  # Verify Node.js and npm versions
+RUN node -v && npm -v
+
